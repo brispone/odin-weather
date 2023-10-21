@@ -1,3 +1,8 @@
-import { getWeather } from './apiFunctions.js';
+import { getWeather, processData } from './apiFunctions.js';
 
-getWeather("new york city");
+async function fetchAndLogWeather() {
+    const weatherData = await getWeather("london");
+    console.log(weatherData);
+}
+
+fetchAndLogWeather();
