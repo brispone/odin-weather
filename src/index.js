@@ -1,3 +1,4 @@
+import './style.css';
 import { getWeather } from './apiFunctions.js';
 
 async function fetchAndLogWeather(searchTerm) {

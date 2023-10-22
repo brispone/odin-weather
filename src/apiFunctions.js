@@ -28,7 +28,9 @@ function processData(data) {
     const wind_kph = data.current.wind_kph;
     const humidity = data.current.humidity;
     const chanceOfRain = data.forecast.forecastday[0].day.daily_chance_of_rain;
-    const location = data.location.name;
+    const city = data.location.name;
+    const region = data.location.region;
+    const country = data.location.country;
     const localtime = data.location.localtime;
 
     const forecast = [];
@@ -60,7 +62,9 @@ function processData(data) {
         wind_kph,
         humidity,
         chanceOfRain,
-        location,
+        city,
+        region,
+        country,
         localtime,
         forecast
     }

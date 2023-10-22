@@ -6,13 +6,37 @@
     <title>Weather App</title>
 </head>
 <body>
-        <div id="content">
+        <div id="header">
             <form id="search-bar">
                 <input type="search" id="query" name="query" placeholder="Search location... (city name, postal code)">
                 <button>Search</button>
             </form>
         </div>
-        Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+        <div id="content">
+            <div id="daily">
+                <h1 id="city-name">Baton Rouge</h3>
+                <h2 id="region-country-name">Louisiana, United States of America</h2>
+                <div id="temp-and-condition">
+                    <div id="temperature">
+                        <span id="real-temp">76</span>
+                        <span id="feels-like">Feels like 67</span>
+                    </div>
+                    <div id="condition">
+                        <img id="condition-icon" src="#">
+                        <p id="condition-text">Sunny</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="weekly">
+
+            </div>
+        </div>
+        <div id="footer">
+            Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+        </div>
+        
     <script src="main.js"></script>
 </body>
 </html>

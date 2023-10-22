@@ -1,0 +1,42 @@
+* {
+    border: 1px solid red;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
+#footer {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+}
+
+#content {
+    display: flex;
+}
+
+#daily {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+}
+
+#temp-and-condition {
+    display: flex;
+}
+
+#condition, #temperature {
+    display: flex;
+    flex-direction: column;
+}
