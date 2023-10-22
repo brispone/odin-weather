@@ -1,3 +1,5 @@
+import { getDayOfWeek } from "./getDayOfWeek";
+
 async function getWeather(location) {
     try {
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=ae28bb44103240b1884135919232010&q=${location}&days=8`);
@@ -34,6 +36,7 @@ function processData(data) {
     for(let i=1; i<8; i++) {
         const dayObject = {
             date: data.forecast.forecastday[i].date,
+            dayOfWeek: getDayOfWeek(data.forecast.forecastday[i].date),
             maxtemp_c: data.forecast.forecastday[i].day.maxtemp_c,
             maxtemp_f: data.forecast.forecastday[i].day.maxtemp_f,
             mintemp_c: data.forecast.forecastday[i].day.mintemp_c,
