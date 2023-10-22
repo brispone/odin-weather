@@ -7,15 +7,21 @@
 </head>
 <body>
         <div id="header">
+            <h1>Weather</h1>
             <form id="search-bar">
                 <input type="search" id="query" name="query" placeholder="Search location... (city name, postal code)">
                 <button>Search</button>
             </form>
+            <div>
+                <button id="display-units-button">Show °F</button>
+            </div>
         </div>
         <div id="content">
             <div id="daily">
                 <h1 id="city-name">Baton Rouge</h3>
-                <h2 id="region-country-name">Louisiana, United States of America</h2>
+                <h3 id="region-country-name">Louisiana, United States of America</h3>
+                <h2 id="current-day">Sunday</h2>
+                <p id="current-date">2023-10-22</p>
                 <div id="temp-and-condition">
                     <div id="temperature">
                         <span id="real-temp">76</span>
@@ -26,15 +32,32 @@
                         <p id="condition-text">Sunny</p>
                     </div>
                 </div>
+                <div id="extra-info">
+                    <div id="humidity">
+                        <h3>Humidity</h3>
+                        <p id="current-humidity">43%</p>
+                    </div>
+                    <div id="chance-of-rain">
+                        <h3>Chain of rain</h3>
+                        <p id="current-chance-of-rain">90%</p>
+                    </div>
+                    <div id="wind-speed">
+                        <h3>Wind</h3>
+                        <p id="current-wind">8 mph</p>
+                    </div>
+                </div>
 
             </div>
 
             <div id="weekly">
-
+                <h2>Weekly Forecast</h2>
+                <ul id="forecast-content">
+                </ul>
             </div>
         </div>
         <div id="footer">
-            Powered by <a href="https://www.weatherapi.com/" title="Free Weather API">WeatherAPI.com</a>
+            <p>Designed and coded by <a href="https://github.com/brispone/" target="_blank">Brad Rispone</a> for <a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a></p>
+            <p>Powered by <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI.com</a></p>
         </div>
         
     <script src="main.js"></script>

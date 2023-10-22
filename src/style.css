@@ -11,12 +11,13 @@ body {
 
 #header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: auto;
 }
 
@@ -24,12 +25,20 @@ body {
     display: flex;
 }
 
-#daily {
+#daily, #weekly {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-basis: 50%;
+}
+
+#city-name {
+    margin-bottom: 0;
+}
+
+#region-country-name {
+    margin-top: 0;
 }
 
 #temp-and-condition {
@@ -39,4 +48,18 @@ body {
 #condition, #temperature {
     display: flex;
     flex-direction: column;
+}
+
+#extra-info {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    justify-content: center;
 }

@@ -23,7 +23,7 @@ function processData(data) {
     const feelslike_c = data.current.feelslike_c;
     const feelslike_f = data.current.feelslike_f;
     const condition = data.current.condition.text;
-    const conditionIcon = data.current.condition.icon;
+    const conditionIcon = "https:" + data.current.condition.icon;
     const wind_mph = data.current.wind_mph;
     const wind_kph = data.current.wind_kph;
     const humidity = data.current.humidity;
