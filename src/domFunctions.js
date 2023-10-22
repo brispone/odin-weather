@@ -4,6 +4,8 @@ function updateDOM(weatherData, displayCelsius) {
 
     const city = document.getElementById('city-name');
     const region = document.getElementById('region-country-name');
+    const currentDay = document.getElementById('current-day');
+    const currentDate = document.getElementById('current-date');
     const temp = document.getElementById('real-temp');
     const feelsLike = document.getElementById('feels-like');
     const conditionIcon = document.getElementById('condition-icon');
@@ -14,6 +16,8 @@ function updateDOM(weatherData, displayCelsius) {
 
     city.innerText = weatherData.city;
     region.innerText = weatherData.region + ", " + weatherData.country;
+    currentDay.innerText = weatherData.currentDayOfWeek;
+    currentDate.innerText = weatherData.currentDate;
     if(displayCelsius) {
         temp.innerText = weatherData.temp_c + "°C";
         feelsLike.innerText = "Feels like " + weatherData.feelslike_c + "°C";
@@ -43,6 +47,10 @@ function updateDOM(weatherData, displayCelsius) {
         forecastConditionIcon.classList.add('forecast-condition-icon');
         const highLow = document.createElement('div');
         highLow.classList.add('forecast-high-low');
+        const highTemp = document.createElement('p');
+        highTemp.classList.add('forecast-high-temp');
+        const lowTemp = document.createElement('p');
+        lowTemp.classList.add('forecast-low-temp');
         const chanceOfRain = document.createElement('div');
         chanceOfRain.classList.add('forecast-chance-of-rain');
         
@@ -52,12 +60,15 @@ function updateDOM(weatherData, displayCelsius) {
         forecastConditionIcon.src = "https:" + day.conditionIcon;
         chanceOfRain.innerText = `Chance of rain: ${day.chanceOfRain}%`;
         if(displayCelsius) {
-            highLow.innerText = `${day.maxtemp_c}°C / ${day.mintemp_c}°C`;
+            highTemp.innerText = `${day.maxtemp_c}°C`;
+            lowTemp.innerText = `${day.mintemp_c}°C`;
         }else {
-            highLow.innerText = `${day.maxtemp_f}°F / ${day.mintemp_f}°F`;
+            highTemp.innerText = `${day.maxtemp_f}°F`;
+            lowTemp.innerText = `${day.mintemp_f}°F`;
         }
 
         forecastDayDiv.append(dayOfWeek, date);
+        highLow.append(highTemp, lowTemp);
         li.append(forecastDayDiv, forecastConditionIcon, highLow, chanceOfRain);
         forecastContent.append(li);
     });

@@ -31,6 +31,8 @@ function processData(data) {
     const city = data.location.name;
     const region = data.location.region;
     const country = data.location.country;
+    const currentDate = data.forecast.forecastday[0].date;
+    const currentDayOfWeek = getDayOfWeek(currentDate);
     const localtime = data.location.localtime;
 
     const forecast = [];
@@ -66,6 +68,8 @@ function processData(data) {
         region,
         country,
         localtime,
+        currentDate,
+        currentDayOfWeek,
         forecast
     }
 }
