@@ -3,16 +3,20 @@ import { getDayOfWeek } from "./getDayOfWeek";
 async function getWeather(location) {
     try {
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=ae28bb44103240b1884135919232010&q=${location}&days=8`);
+        
+        if(!response.ok) {
+            const errorData = await response.json();
+            const errorMessage = errorData.error.message;
+            throw new Error(errorMessage);
+        } 
+
         const weatherData = await response.json();
         const processedData = processData(weatherData);
 
-        if(!response.ok) {
-            console.log(weatherData.error.message);
-        } else {
-            return processedData;
-        }
+        return processedData;
     } catch (error) {
         console.log(error);
+        throw error;
     }
 }
 

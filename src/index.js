@@ -10,15 +10,23 @@ async function fetchAndLogWeather(searchTerm) {
     const loader = document.querySelector('#content .loader');
     const dailyContent = document.getElementById('daily');
     const weeklyContent = document.getElementById('weekly');
+    const errorMessageContainer = document.getElementById('error-message');
 
     // hide page content and show loader
     dailyContent.classList.toggle('hidden');
     weeklyContent.classList.toggle('hidden');
+    errorMessageContainer.classList.add('hidden');
     loader.classList.toggle('hidden');
     
+    try {
     const weatherData = await getWeather(searchTerm);
     currentLocationData = weatherData;
     updateDOM(weatherData, displayCelsius);
+    } catch (error) {
+        errorMessageContainer.innerText = error.message;
+        errorMessageContainer.classList.remove('hidden');
+        console.error(error);
+    }
     // hide loader and show content again
     loader.classList.toggle('hidden');
     dailyContent.classList.toggle('hidden');
