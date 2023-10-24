@@ -15,7 +15,7 @@ async function fetchAndLogWeather(searchTerm) {
     // hide page content and show loader
     dailyContent.classList.toggle('hidden');
     weeklyContent.classList.toggle('hidden');
-    errorMessageContainer.classList.add('hidden');
+    errorMessageContainer.classList.add('hidden-error');
     loader.classList.toggle('hidden');
     
     try {
@@ -24,7 +24,7 @@ async function fetchAndLogWeather(searchTerm) {
     updateDOM(weatherData, displayCelsius);
     } catch (error) {
         errorMessageContainer.innerText = error.message;
-        errorMessageContainer.classList.remove('hidden');
+        errorMessageContainer.classList.remove('hidden-error');
         console.error(error);
     }
     // hide loader and show content again

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-* {
-    border: 1px solid red;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -71,14 +67,14 @@ body {
 
 #search-bar {
     flex: 1;
-    min-height: 50%;
+    height: 100%;
 }
 
 .error-container {
     flex: 1;
     display: flex;
     justify-content: center;
-    min-height: 50%;
+    min-height: 100%;
 }
 
 #error-message {
@@ -282,10 +278,12 @@ li.not-last {
     100% {
         transform: rotate(360deg);
     }
-    } 
+} 
 
-  .hidden {
+.hidden {
     display: none !important;
-  }
+}
 
-  
+.hidden-error {
+    visibility: hidden;
+}
