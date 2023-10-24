@@ -37,7 +37,7 @@ function updateDOM(weatherData, displayCelsius) {
     const forecastContent = document.getElementById('forecast-content');
     forecastContent.innerText = '';
 
-    weatherData.forecast.forEach((day) => {
+    weatherData.forecast.forEach((day, index) => {
         const li = document.createElement('li');
         const forecastDayDiv = document.createElement('div');
         forecastDayDiv.classList.add('forecast-day');
@@ -53,12 +53,17 @@ function updateDOM(weatherData, displayCelsius) {
         lowTemp.classList.add('forecast-low-temp');
         const chanceOfRain = document.createElement('div');
         chanceOfRain.classList.add('forecast-chance-of-rain');
+        const chanceOfRainHeader = document.createElement('p');
+        chanceOfRainHeader.classList.add('forecast-cor-header');
+        const chanceOfRainNumber = document.createElement('p');
+        chanceOfRainNumber.classList.add('forecast-cor-number');
         
 
         dayOfWeek.innerText = day.dayOfWeek;
         date.innerText = day.date;
         forecastConditionIcon.src = "https:" + day.conditionIcon;
-        chanceOfRain.innerText = `Chance of rain: ${day.chanceOfRain}%`;
+        chanceOfRainHeader.innerText = 'Chance of rain';
+        chanceOfRainNumber.innerText = day.chanceOfRain + '%';
         if(displayCelsius) {
             highTemp.innerText = `${day.maxtemp_c}°C`;
             lowTemp.innerText = `${day.mintemp_c}°C`;
@@ -69,8 +74,13 @@ function updateDOM(weatherData, displayCelsius) {
 
         forecastDayDiv.append(dayOfWeek, date);
         highLow.append(highTemp, lowTemp);
+        chanceOfRain.append(chanceOfRainHeader, chanceOfRainNumber);
         li.append(forecastDayDiv, forecastConditionIcon, highLow, chanceOfRain);
         forecastContent.append(li);
+
+        if(index < 6) { // If we are noit yet on the last item of the forecast array
+            li.classList.add('not-last');
+        }
     });
 
 }
