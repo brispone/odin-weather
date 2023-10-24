@@ -13,9 +13,12 @@
             
             <div class="search-container">
                 <form id="search-bar">
-                    <input type="search" id="query" name="query" placeholder="Search location... (city name, postal code)">
+                    <input type="search" id="query" name="query" placeholder="Search location... (city name, postal code)" required>
                     <input type="image" src="../src/assets/search.svg" alt="Submit">
                 </form>
+                <div class="erorr-container">
+                    <div id="error-message" class="hidden"></div>
+                </div>
             </div>
 
             <div class="units-btn-container">
